@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineCtrl : MonoBehaviour {
+public class LineCtrl : MonoBehaviour
+{
 
-
+    public GameObject number;
     public GameObject pos_1;
     public GameObject pos_2;
 
@@ -17,8 +18,9 @@ public class LineCtrl : MonoBehaviour {
 
     void Start()
     {
-        lineRenderer = this.GetComponent<LineRenderer>();
-        lineRenderer.SetVertexCount(lineLength);
+        //lineRenderer = this.GetComponent<LineRenderer>();
+        //lineRenderer.SetVertexCount(lineLength);
+
         //lineRenderer.SetColors(Color.black, Color.white);
 
     }
@@ -26,9 +28,13 @@ public class LineCtrl : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Instantiate(number, Vector3.zero, Quaternion.identity);
 
-        lineRenderer.SetPosition(0, pos_1.transform.position);
-        lineRenderer.SetPosition(1, pos_2.transform.position);
+        }
+        //lineRenderer.SetPosition(0, pos_1.transform.position);
+        //lineRenderer.SetPosition(1, pos_2.transform.position);
 
     }
 }
