@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineCtrl : MonoBehaviour
 {
 
-    public GameObject number;
+    public GameObject obj;
     public GameObject pos_1;
     public GameObject pos_2;
 
@@ -30,11 +30,17 @@ public class LineCtrl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Instantiate(number, Vector3.zero, Quaternion.identity);
+            GameObject _obj = Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+            _obj.transform.Rotate(new Vector3(-90, 0, 0));
 
         }
         //lineRenderer.SetPosition(0, pos_1.transform.position);
         //lineRenderer.SetPosition(1, pos_2.transform.position);
 
+    }
+
+    public void ATest()
+    {
+        DebugConsole.Log("动画播放完成");
     }
 }

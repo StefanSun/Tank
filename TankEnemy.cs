@@ -28,17 +28,17 @@ public class TankEnemy : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (Random.Range(0, 4) == 1)
+        if (Random.Range(0, 4) == 2)
         {
             GameObject a = Instantiate(number999, new Vector3(this.transform.position.x, this.transform.position.y + 5f, this.transform.position.z), Quaternion.identity) as GameObject;
-            a.transform.LookAt(Camera.main.transform);
-
+            a.GetComponent<iTweenPositionTo>().valueFrom = this.transform.position;
+            a.GetComponent<iTweenPositionTo>().valueTo = this.transform.position + new Vector3(0, 8, 0);
         }
         else
         {
             GameObject a = Instantiate(number100, new Vector3(this.transform.position.x, this.transform.position.y + 5f, this.transform.position.z), Quaternion.identity) as GameObject;
-            a.transform.LookAt(Camera.main.transform);
-
+            a.GetComponent<iTweenPositionTo>().valueFrom = this.transform.position;
+            a.GetComponent<iTweenPositionTo>().valueTo = this.transform.position + new Vector3(0, 10, 0);
         }
     }
 

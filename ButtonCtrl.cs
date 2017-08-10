@@ -49,7 +49,6 @@ public class ButtonCtrl : MonoBehaviour {
 	{
 		isShow = !isShow;
 		ble_menu.GetComponent<Animator> ().SetBool ("isShow",isShow);
-
 	}
 	public void QuitAPP()
 	{

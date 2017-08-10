@@ -368,8 +368,7 @@ public class PlayerCtrl : MonoBehaviour
                     gbd_zhunxing.SetActive(false);
 
                     GameObject gb = Instantiate(gaobaodan, gbd_zhunxing.transform.position, Quaternion.identity) as GameObject;
-                    Vector3 vec = new Vector3(-90, 0, 0);
-                    gb.transform.Rotate(vec);
+                    gb.transform.Rotate(new Vector3(-90, 0, 0));
 
                     break;
                 case BulletState.sanxing:
@@ -380,7 +379,7 @@ public class PlayerCtrl : MonoBehaviour
                     kaipao.Play();
                     ranshaodan_audio.Play();
                     GameObject rsd = Instantiate(ranshaodan, rsd_zhunxing.transform.position, Quaternion.identity) as GameObject;
-                    //rsd.transform.rotation = bullet_pos.transform.rotation;
+                    //rsd.transform.Rotate(new Vector3(-90, 0, 0));
 
                     rsd_zhunxing.SetActive(false);
                     break;
