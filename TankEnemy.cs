@@ -25,7 +25,7 @@ public class TankEnemy : MonoBehaviour
 
         }
     }
-
+    /*
     private void OnCollisionStay(Collision collision)
     {
         if (Random.Range(0, 4) == 2)
@@ -41,6 +41,6 @@ public class TankEnemy : MonoBehaviour
             a.GetComponent<iTweenPositionTo>().valueTo = this.transform.position + new Vector3(0, 10, 0);
         }
     }
-
+    */
 
 }

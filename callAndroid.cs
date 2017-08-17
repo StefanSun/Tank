@@ -31,6 +31,7 @@ public class callAndroid : MonoBehaviour
     int A_pos_y;
     int B_pos_x;
     int B_pos_y;
+    bool isConect = false;
     string order = "";
     string bt_address = "";
     string bluetooth_list = "";
@@ -120,11 +121,13 @@ public class callAndroid : MonoBehaviour
     {
         oj.Call("openBluetooth");
     }
+
     void Close()
     {
         oj.Call("closeBluetooth");
         ClearBLEData();
     }
+
     void Scan()
     {
         oj.Call("scanLeDevice", true);//true
@@ -133,6 +136,7 @@ public class callAndroid : MonoBehaviour
         WaitCloseIE(10f, "BlueToochData");
         bt_list_ui.SetActive(true);
     }
+
     void Connect()
     {
         string[] arr = { "08:7C:BE:00:00:01", "0000fee9-0000-1000-8000-00805f9b34fb", "d44bc439-abfd-45a2-b575-925416129600" };
@@ -159,23 +163,23 @@ public class callAndroid : MonoBehaviour
                 BLE_state.text = "已打开";
                 break;
             case "10":
-                Connect();
+                
                 //BLE_state.text = "已打开";
                 break;
             case "13":
-                Connect();
+                
                 //BLE_state.text = "关闭中";
                 break;
             case "5002":
-                Connect();
+                
                 //BLE_state.text = "未连接";
                 break;
             case "5003":
-                Connect();
+                
                 //BLE_state.text = "未连接";
                 break;
             case "5004":
-                Connect();
+                
                 //BLE_state.text = "未连接";
                 break;
 
@@ -205,6 +209,7 @@ public class callAndroid : MonoBehaviour
             bluetooth_list = json;
         }
     }
+
 
     bool isSend = true;
     //蓝牙接收到的回调信息接收处理
@@ -257,11 +262,13 @@ public class callAndroid : MonoBehaviour
         power_text.text = power.ToString() + "%";
     }
 
+
     //给蓝牙发送消息,供调用
     public void SendStringData(string data)
     {
         oj.Call("sendData", data);
     }
+
 
     //更新蓝牙列表方法，每2.5s刷新一次
     int bt_num = 0;
@@ -325,12 +332,15 @@ public class callAndroid : MonoBehaviour
         StartCoroutine("BlueToochData");
     }
 
+
     //延时关闭异步协程
     IEnumerator WaitCloseIE(float t, string mathname)
     {
         yield return new WaitForSeconds(t);
         StopCoroutine(mathname);
     }
+
+
     //用户用按钮选择蓝牙列表里的蓝牙ID
     public void SetAddress(string num)
     {
